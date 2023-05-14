@@ -1,14 +1,9 @@
 const express = require("express");
-const {
-  registerWithGoogle,
-  registerWithfacebook,
-} = require("../controllers/authController");
+const {ping} = require('../controllers/testController');
+const { verifyToken } = require("../middlewares/verifyToken");
+
 const router = express.Router();
+router.get('/ping',verifyToken, ping)
 
-// localhost:3000/api/v1/users/auth/google
-router.get("/auth/google", registerWithGoogle);
-
-// localhost:3000/api/v1/users/auth/facebook
-router.get("/auth/facebook", registerWithfacebook);
 
 module.exports = router;
