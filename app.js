@@ -10,9 +10,9 @@ app.use(express.json());
 if (process.env.NODE_ENV === "development") app.use(morgan("dev"));
 
 // App Routers
-app.use("/", (req, res) => {
-  res.send("<h1 style=text-align:center>Welcome to Mmuta</h1>");
-});
+// app.use("/", (req, res) => {
+//   res.send("<h1 style=text-align:center>Welcome to Mmuta</h1>");
+// });
 app.use("/api/v1/users", userRouter);
 
 // 404 handler
