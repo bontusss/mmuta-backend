@@ -1,8 +1,8 @@
-const express = require("express");
-const morgan = require("morgan");
-const appError = require("./utils/appError");
-const globalErrorCHandler = require("./controllers/errorController");
-const userRouter = require("./routes/userRouter");
+import express from 'express'
+import morgan from 'morgan'
+import AppError from './utils/appError'
+import globalErrorCHandler from "./controllers/errorController"
+import userRouter from "./routes/userRouter"
 
 const app = express();
 
@@ -17,10 +17,10 @@ app.use("/api/v1/users", userRouter);
 
 // 404 handler
 app.all("*", (req, res, next) => {
-  next(new appError(`Can't find ${req.originalUrl} on this server`));
+  next(new AppError(`Can't find ${req.originalUrl} on this server`));
 });
 
 // Global Error handling middleware
 app.use(globalErrorCHandler);
 
-module.exports = app;
+export default app;
