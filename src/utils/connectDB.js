@@ -1,4 +1,4 @@
-module.exports = (dbUrl, database) => {
+const connectDB = (dbUrl, database) => {
   console.log("connecting to DB..");
   database.connect(dbUrl);
   database.connection.on("connected", function () {
@@ -13,9 +13,9 @@ module.exports = (dbUrl, database) => {
 
   process.on("SIGINT", function () {
     database.connection.close(function () {
-      console.log(
-        termination("Database is disconnect because of app termination")
-      );
+      console.log("Database is disconnect because of app termination");
     });
   });
 };
+
+export default connectDB;

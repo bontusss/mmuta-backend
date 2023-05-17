@@ -1,6 +1,6 @@
 import express from 'express'
 import morgan from 'morgan'
-import AppError from './utils/appError'
+import AppError from './utils/AppError'
 import globalErrorCHandler from "./controllers/errorController"
 import userRouter from "./routes/userRouter"
 

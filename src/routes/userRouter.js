@@ -1,11 +1,8 @@
-const express = require("express");
-const {ping} = require('../controllers/testController');
-const { verifyToken } = require("../middlewares/verifyToken");
+import express from 'express';
+import ping from '../controllers/testController';
+import verifyToken from '../middlewares/verifyToken';
 
 const router = express.Router();
-router.get('/ping',verifyToken, ping)
+router.get('/ping', verifyToken, ping);
 
-
-module.exports = router;
-
-
+export default router;
