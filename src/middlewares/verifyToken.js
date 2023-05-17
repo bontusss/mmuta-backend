@@ -1,8 +1,8 @@
-const catchAsync = require("../utils/catchAsync");
-const admin = require("../utils/firebase-admin");
-const AppError = require("../utils/appError");
+import catchAsync from "../utils/catchAsync";
+import admin from "../utils/firebase-admin";
+import AppError from "../utils/AppError";
 
-exports.verifyToken = catchAsync((req, res, next) => {
+const verifyToken = catchAsync((req, res, next) => {
   let token;
   // check if token exists
   if (
@@ -13,5 +13,7 @@ exports.verifyToken = catchAsync((req, res, next) => {
   if (!token) return next(new AppError("Please signin or login", 401));
   //   verify token
   const decodedToken = admin.auth().verifyIdToken(token);
-  if (decodedToken) next();
+  // if (decodedToken) next();
 });
+
+export default verifyToken;

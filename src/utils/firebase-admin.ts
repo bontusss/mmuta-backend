@@ -19,4 +19,4 @@ admin.initializeApp({
   credential: admin.credential.cert(params),
 });
 
-module.exports = admin;
+export default admin;
